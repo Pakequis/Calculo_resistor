@@ -1,0 +1,24 @@
+n_max = 150 #Numero maximo de resistores na associacao
+cnt = 0
+print ("======= Calculo de associacao de resistores =========")
+value = (float)(input("valor do resistor fixo: "))
+obj_value = (float)(input("Valor do resistor desejado: "))
+obj_err = (float)(input("Maximo erro da resistencia: "))
+
+print ("**********************************************************************")
+print("")
+for p in xrange(1,n_max+1):
+    for s2 in xrange(1,n_max+1):
+        for s1 in xrange(1,n_max+1):
+            n=s1*s2*p
+            if(n < n_max + 1):
+                res = ((value * s1)/p)*s2
+                error = abs(obj_value - res)            
+                if error < obj_err:
+                    print "Valor: %f, Erro = %f, N = %i, s1 = %i, s2 = %i, p = %i" %(res,error,n,s1,s2,p)
+                    cnt = cnt + 1
+print("")
+print ("**********************************************************************")
+print "Combinacoes possiveis: %i" %(cnt)
+print("")
+print("")
