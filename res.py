@@ -7,15 +7,15 @@ obj_err = (float)(input("Maximo erro da resistencia: "))
 
 print ("**********************************************************************")
 print("")
-for p in xrange(1,n_max+1):
-    for s2 in xrange(1,n_max+1):
-        for s1 in xrange(1,n_max+1):
+for p in xrange(1,n_max):
+    for s2 in xrange(1,n_max):
+        for s1 in xrange(1,n_max):
             n=s1*s2*p
-            if(n < n_max + 1):
+            if(n <= n_max):
                 res = ((value * s1)/p)*s2
                 error = abs(obj_value - res)            
                 if error < obj_err:
-                    print "Valor: %f, Erro = %f, N = %i, s1 = %i, s2 = %i, p = %i" %(res,error,n,s1,s2,p)
+                    print "Valor: %.3f, Erro = %.3f, N = %i, s1 = %i, s2 = %i, p = %i" %(res,error,n,s1,s2,p)
                     cnt = cnt + 1
 print("")
 print ("**********************************************************************")
